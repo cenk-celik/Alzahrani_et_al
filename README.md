@@ -9,7 +9,7 @@ We employed [```salmon```](https://salmon.readthedocs.io/en/latest/) (v 1.9.0) f
 
 ## Step 2: ```tximport``` for ```DESeq2```
 
-After quantification, we used [```tximport```](https://bioconductor.org/packages/release/bioc/html/tximport.html) (v 1.26.1) to import counts generated at step 1. For genome-wide annotation, we used [Gencode Annotation Release 42](https://www.gencodegenes.org/human/). See the workflow [here](scripts/salmon2tximport.r).
+After quantification, we used [```tximport```](https://bioconductor.org/packages/release/bioc/html/tximport.html) (v 1.26.1) to import counts generated at step 1. For genome-wide annotation, we used [Gencode Annotation Release 42](https://www.gencodegenes.org/human/). See the workflow [here](scripts/salmon2tximport.R).
 
 ## Step 3: ```DESeq2``` object and global response
 
@@ -17,12 +17,12 @@ Using the ```txi``` object that includes all count matrices, we generated ```dds
 
 ## Step 4: Differentially expressed genes
 
-Using this [script](scripts/DESeq2results.r), we observed differentially expressed genes (DEGs) in IRE1_KO, compared with control.
+Using this [script](scripts/DESeq2results.R), we observed differentially expressed genes (DEGs) in IRE1_KO, compared with control.
 
 ## Step 5: Gene Ontology analysis
 
-For over-representation and gene set enrichment analysis (GSEA), we used [```clusterProfiler```](http://bioconductor.org/packages/release/bioc/html/clusterProfiler.html) (v 4.6.0), [```enrichplot```](http://bioconductor.org/packages/release/bioc/html/enrichplot.html) (v 1.18.3) and [```DOSE```](http://bioconductor.org/packages/release/bioc/html/DOSE.html) (v 3.24.2) packages for [Gene Ontology](scripts/gene_ontology.r) analyses, as well as [```ReactomePA```](http://bioconductor.org/packages/release/bioc/html/ReactomePA.html) (v 1.42.0) for [Reactome](scripts/reactome.r).
+For over-representation and gene set enrichment analysis (GSEA), we used [```clusterProfiler```](http://bioconductor.org/packages/release/bioc/html/clusterProfiler.html) (v 4.6.0), [```enrichplot```](http://bioconductor.org/packages/release/bioc/html/enrichplot.html) (v 1.18.3) and [```DOSE```](http://bioconductor.org/packages/release/bioc/html/DOSE.html) (v 3.24.2) packages for [Gene Ontology](scripts/clusterProfiler.R) analyses, as well as [```ReactomePA```](http://bioconductor.org/packages/release/bioc/html/ReactomePA.html) (v 1.42.0) for [Reactome](scripts/reactome.R).
 
 ## Step 6: KEGG pathway analysis
 
-Similar to Gene Ontology analysis, we also looked at [```KEGG```](https://www.kegg.jp) pathways. The script can be found [here](scripts/kegg.r).
+Similar to Gene Ontology analysis, we also looked at [```KEGG```](https://www.kegg.jp) pathways. The script can be found [here](scripts/kegg.R).
