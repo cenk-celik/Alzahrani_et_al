@@ -55,5 +55,16 @@ pheatmap(mat, cluster_rows = T, show_rownames = F, cluster_cols = T,
          scale = 'row')
 dev.off()
 
+# Cluster tree---
+library(matrixStats)
+rv <- rowVars(assay(vsd))
+o <- order(rv, decreasing = T)
+dists <- dist(t(assay(vsd)[head(o, 500), ]))
+hc <- hclust(dists)
+
+pdf('./plots/dendrogram.pdf')
+plot(hc, labels = vsd$run)
+dev.off()
+
 #----session----
 sessionInfo()
