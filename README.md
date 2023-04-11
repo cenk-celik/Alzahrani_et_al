@@ -5,7 +5,7 @@ This repository describes step-by-step RNA sequencing (RNA-seq) analysis conduct
 # RNA-seq steps
 ## Step 1: Obtaining count matrices
 
-We employed [```salmon```](https://salmon.readthedocs.io/en/latest/) (v 1.9.0) for obtaining the count matrices from the ```_.fastq_``` files using [Gencode Release 42](https://www.gencodegenes.org/human/) with parameters ```--gcBias``` and ```--validateMappings```. We also generated ```decoys.txt``` as described in ```salmon``` [vignette](https://salmon.readthedocs.io/en/latest/salmon.html?highlight=decoy#preparing-transcriptome-indices-mapping-based-mode). The ```salmon``` script for obtaining count matrices can be found [here](/scripts/quantifier.sh).
+We employed [```salmon```](https://salmon.readthedocs.io/en/latest/) (v 1.9.0) for obtaining the count matrices from the ```_.fastq_``` files using [Gencode Release 42](https://www.gencodegenes.org/human/) with parameters ```--gcBias``` and ```--validateMappings```. We also generated ```decoys.txt``` as described in ```salmon``` [vignette](https://salmon.readthedocs.io/en/latest/salmon.html?highlight=decoy#preparing-transcriptome-indices-mapping-based-mode) during building the [index](/scripts/salmon_index.sh). The ```salmon``` script for obtaining count matrices can be found [here](/scripts/quantifier.sh).
 
 ## Step 2: ```tximport``` for ```DESeq2```
 
