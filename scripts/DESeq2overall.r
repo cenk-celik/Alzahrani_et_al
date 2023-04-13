@@ -30,16 +30,6 @@ pdf('./plots/pca.pdf')
 plotPCA(vsd, intgroup = 'condition') + theme(aspect.ratio = 1, panel.background = NULL)
 dev.off()
 
-# Sample distances----
-library(pheatmap)
-sampleDists <- dist(t(assay(vsd)))
-sampleDistMatrix <- as.matrix(sampleDists)
-
-pdf(paste0(mainDir, './plots/sampleDistances.pdf'))
-pheatmap(sampleDistMatrix, cluster_rows = F, cluster_cols = F, angle_col = 45,
-         annotation_col = df, border_color = NA, cellwidth = 15, cellheight = 15)
-dev.off()
-
 # Top variable genes heat map----
 
 topVarGenes <- head(order(-rowVars(assay(vsd))), 500)
@@ -53,6 +43,16 @@ pdf(paste0(mainDir, './plots/heatmap.pdf'))
 pheatmap(mat, cluster_rows = T, show_rownames = F, cluster_cols = T,
          annotation_col = df, angle_col = 45, cutree_cols = T, border_color = NA,
          scale = 'row')
+dev.off()
+
+# Sample distances----
+library(pheatmap)
+sampleDists <- dist(t(assay(vsd)))
+sampleDistMatrix <- as.matrix(sampleDists)
+
+pdf(paste0(mainDir, './plots/sampleDistances.pdf'))
+pheatmap(sampleDistMatrix, cluster_rows = F, cluster_cols = F, angle_col = 45,
+         annotation_col = df, border_color = NA, cellwidth = 15, cellheight = 15)
 dev.off()
 
 # Cluster tree---
